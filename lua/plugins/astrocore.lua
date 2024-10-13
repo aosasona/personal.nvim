@@ -88,6 +88,10 @@ return {
           desc = "Toggle Git blame line",
         },
 
+        -- Jumplist mapping
+        ["go"] = { "<C-o>", desc = "Jump to previous location" },
+        ["gi"] = { "<C-i>", desc = "Jump to next location" },
+
         -- Toggle inlay hints
         ["<leader>lH"] = {
           function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {}) end,

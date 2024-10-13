@@ -7,6 +7,7 @@ return {
   "tpope/vim-sleuth",
   "sigmasd/deno-nvim",
   "vim-crystal/vim-crystal",
+  "savq/melange-nvim",
   {
     "adelowo/dockercomposelogs.nvim",
     config = function()
