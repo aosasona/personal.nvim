@@ -3,6 +3,13 @@ local M = {}
 function M.setup()
 	local exclude_servers = { "rust_analyzer" }
 	local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+	-- For nvim-ufo
+	capabilities.textDocument.foldingRange = {
+		dynamicRegistration = false,
+		lineFoldingOnly = true,
+	}
+
 	require("mason-lspconfig").setup_handlers({
 		function(server_name)
 			if vim.tbl_contains(exclude_servers, server_name) then
