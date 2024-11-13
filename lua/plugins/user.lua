@@ -1,6 +1,18 @@
 return {
 	{ "rcarriga/nvim-notify", as = "notify" },
-	{ "tpope/vim-sleuth", lazy = false },
+	{ "andweeb/presence.nvim" },
+	{ "tpope/vim-sleuth",     lazy = false },
+	{
+		"wakatime/vim-wakatime",
+		lazy = false,
+	},
+	{ "aznhe21/actions-preview.nvim" },
+	{
+		"folke/ts-comments.nvim",
+		opts = {},
+		event = "VeryLazy",
+		enabled = vim.fn.has "nvim-0.10.0" == 1,
+	},
 	{
 		"MagicDuck/grug-far.nvim",
 		config = function()
@@ -17,6 +29,10 @@ return {
 		"akinsho/git-conflict.nvim",
 		version = "*",
 		config = true,
+	},
+	{
+		"mistweaverco/kulala.nvim",
+		config = function() require("kulala").setup() end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -57,7 +73,6 @@ return {
 			require("gitblame").setup({ enabled = false })
 		end,
 	},
-	{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 	{
 		"folke/which-key.nvim",
 		config = function()
@@ -126,5 +141,17 @@ return {
 		config = function(_, opts)
 			require("lsp_signature").setup(opts)
 		end,
+	},
+	{
+		'chomosuke/typst-preview.nvim',
+		lazy = false, -- or ft = 'typst'
+		version = '1.*',
+		build = function() require 'typst-preview'.update() end,
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require('nvim-ts-autotag').setup({})
+		end
 	},
 }

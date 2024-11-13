@@ -164,7 +164,7 @@ return {
 		["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", noremap = true, desc = "Show references" },
 
 		["<leader>l"] = { "", desc = "LSP" },
-		["<leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", noremap = true, desc = "Show code action menu" },
+		["<leader>la"] = { require("actions-preview").code_actions, noremap = true, desc = "Show code action menu" },
 		["<leader>ld"] = { "<cmd>lua vim.diagnostic.open_float()<CR>", noremap = true, desc = "Show diagnostic info" },
 		["<leader>lf"] = {
 			"<cmd>lua vim.lsp.buf.format({ async = true })<CR>",
@@ -220,7 +220,24 @@ return {
 		["<leader>ff"] = {
 			function()
 				require("telescope.builtin").find_files({
-					find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
+					find_command = {
+						"rg",
+						"--files",
+						"--hidden",
+						"-g",
+						"!.git",
+						-- for node
+						"-g",
+						"!node_modules",
+						-- for PHP
+						"-g",
+						"!vendor",
+						-- for Rust
+						"-g",
+						"!target",
+						"--no-ignore",
+						"--follow",
+					},
 				})
 			end,
 			desc = "Search files",
@@ -247,6 +264,19 @@ return {
 			end,
 			description = "Find and replace in current file",
 		},
+
+		-- Kulala bindings
+		["<leader>k"] = { "", desc = "Kulala" },
+		["<leader>kr"] = { function() require("kulala").run() end, desc = "Run the current request" },
+		["<leader>kj"] = { function() require("kulala").jump_next() end, desc = "Jump to the next request" },
+		["<leader>kk"] = { function() require("kulala").jump_prev() end, desc = "Jump to the previous request" },
+		["<leader>ks"] = { function() require("kulala").scratchpad() end, desc = "Open the scratchpad" },
+		["<leader>ky"] = {
+			function() require("kulala").copy() end,
+			desc = "Copy the current request as the curl command",
+		},
+		["<leader>kq"] = { function() require("kulala").close() end, desc = "Closes the kulala window" },
+		["<leader>k/"] = { function() require("kulala").search() end, desc = "Search for a request" },
 	},
 
 	-- Select mode

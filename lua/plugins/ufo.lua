@@ -2,7 +2,7 @@ return {
 	"kevinhwang91/nvim-ufo",
 	dependencies = { "kevinhwang91/promise-async" },
 	lazy = false,
-	event = { "BufReadPre", "BufNewFile", "FileType", "BufWinEnter", "BufReadPost" },
+	event = { "VimEnter", "BufReadPre", "BufNewFile", "BufWinEnter" },
 	keys = {
 		{
 			"zR",
@@ -32,8 +32,6 @@ return {
 		vim.o.foldlevelstart = 99
 		vim.o.foldenable = true
 
-		require("ufo").setup({
-			close_fold_kinds = { "imports" },
-		})
+		require("ufo").setup({})
 	end,
 }
