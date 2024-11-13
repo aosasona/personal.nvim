@@ -2,6 +2,7 @@ local utils = require("utils")
 
 local resession = require("resession")
 local builtin = require("telescope.builtin")
+local gitsigns = require("gitsigns")
 
 return {
 	-- Normal mode
@@ -278,6 +279,49 @@ return {
 		},
 		["<leader>kq"] = { function() require("kulala").close() end, desc = "Closes the kulala window" },
 		["<leader>k/"] = { function() require("kulala").search() end, desc = "Search for a request" },
+
+		-- Harpoon
+		["<leader>h"] = { "", desc = "Harpoon" },
+		["<leader>hh"] = { function() require("harpoon.ui").toggle_quick_menu() end, desc = "Toggle Harpoon UI" },
+		["<leader>h`"] = { function() require("harpoon.mark").add_file() end, desc = "Add current file to Harpoon" },
+		["<leader>hj"] = { function() require("harpoon.ui").nav_file(1) end, desc = "Go to next file in Harpoon" },
+		["<leader>hk"] = { function() require("harpoon.ui").nav_file(-1) end, desc = "Go to previous file in Harpoon" },
+		["<leader>h1"] = { function() require("harpoon.ui").nav_file(1) end, desc = "Go to file 1 in Harpoon" },
+		["<leader>h2"] = { function() require("harpoon.ui").nav_file(2) end, desc = "Go to file 2 in Harpoon" },
+		["<leader>h3"] = { function() require("harpoon.ui").nav_file(3) end, desc = "Go to file 3 in Harpoon" },
+		["<leader>h4"] = { function() require("harpoon.ui").nav_file(4) end, desc = "Go to file 4 in Harpoon" },
+		["<leader>h5"] = { function() require("harpoon.ui").nav_file(5) end, desc = "Go to file 5 in Harpoon" },
+		["<leader>h6"] = { function() require("harpoon.ui").nav_file(6) end, desc = "Go to file 6 in Harpoon" },
+		["<leader>h7"] = { function() require("harpoon.ui").nav_file(7) end, desc = "Go to file 7 in Harpoon" },
+		["<leader>h8"] = { function() require("harpoon.ui").nav_file(8) end, desc = "Go to file 8 in Harpoon" },
+		["<leader>h9"] = { function() require("harpoon.ui").nav_file(9) end, desc = "Go to file 9 in Harpoon" },
+
+		-- Gitsigns
+		["]c"] = {
+			function()
+				if vim.wo.diff then
+					vim.cmd.normal({ ']c', bang = true })
+				else
+					gitsigns.nav_hunk('next')
+				end
+			end,
+			desc = "Go to the next hunk"
+		},
+		["[c"] = {
+			function()
+				if vim.wo.diff then
+					vim.cmd.normal({ '[c', bang = true })
+				else
+					gitsigns.nav_hunk('prev')
+				end
+			end,
+			desc = "Go to the previous hunk"
+		},
+		["<leader>gs"] = { gitsigns.stage_hunk, desc = "Stage current hunk" },
+		["<leader>gu"] = { gitsigns.undo_stage_hunk, desc = "Undo stage current hunk" },
+		["<leader>gr"] = { gitsigns.reset_hunk, desc = "Reset current hunk" },
+		["<leader>gp"] = { gitsigns.preview_hunk, desc = "Preview current hunk" },
+		["<leader>gd"] = { gitsigns.diffthis, desc = "Diff current file" },
 	},
 
 	-- Select mode
@@ -288,6 +332,10 @@ return {
 			':<C-u>lua require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })',
 			description = "Launch grugfar with current selection",
 		},
+
+		-- Gitsigns
+		["<leader>gs"] = { function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, desc = "Stage current hunk" },
+		["<leader>gr"] = { function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end, desc = "Undo stage current hunk" },
 	},
 
 	-- Visual mode
@@ -304,4 +352,3 @@ return {
 		},
 	},
 }
-

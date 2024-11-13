@@ -1,7 +1,13 @@
 return {
 	{ "rcarriga/nvim-notify", as = "notify" },
 	{ "andweeb/presence.nvim" },
-	{ "tpope/vim-sleuth",     lazy = false },
+	{
+		"NvChad/nvim-colorizer.lua",
+		config = function()
+			require 'colorizer'.setup()
+		end
+	},
+	{ "tpope/vim-sleuth",            lazy = false },
 	{
 		"wakatime/vim-wakatime",
 		lazy = false,
@@ -24,6 +30,12 @@ return {
 		"stevearc/oil.nvim",
 		opts = {},
 		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require('gitsigns').setup()
+		end
 	},
 	{
 		"akinsho/git-conflict.nvim",
@@ -154,4 +166,16 @@ return {
 			require('nvim-ts-autotag').setup({})
 		end
 	},
+	{
+		'pwntester/octo.nvim',
+		dependencies = {
+			'nvim-lua/plenary.nvim',
+			'nvim-telescope/telescope.nvim',
+			-- OR 'ibhagwan/fzf-lua',
+			'nvim-tree/nvim-web-devicons',
+		},
+		config = function()
+			require("octo").setup()
+		end
+	}
 }
