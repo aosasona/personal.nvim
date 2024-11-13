@@ -3,6 +3,7 @@ local utils = require("utils")
 local resession = require("resession")
 local builtin = require("telescope.builtin")
 
+
 return {
 	-- Normal mode
 	n = {
@@ -202,11 +203,27 @@ return {
 		},
 		["<leader>fw"] = { builtin.grep_string, desc = "Search current word" },
 		["<leader>fg"] = { builtin.live_grep, desc = "Live grep in current directory/workspace" },
+
+		-- Find and replace
+		["<leader>rc"] = {
+			function() require('grug-far').open({ prefills = { search = vim.fn.expand("<cword>") } }) end,
+			desc = "Find and replace current word",
+		},
+		["<leader>rr"] = { function() require('grug-far').open({ transient = true }) end, desc = "Launch grugfar as a transient buffer" },
+		["<leader>rf"] = {
+			function() require('grug-far').open({ prefills = { paths = vim.fn.expand("%") } }) end,
+			description = "Find and replace in current file"
+		}
 	},
 
 	-- Select mode
 	v = {
+		-- Find and replace
 		["<leader>/"] = { "gc", noremap = false, desc = "Toggle commenting current selection" },
+		["<leader>rr"] = {
+			':<C-u>lua require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })',
+			description = "Launch grugfar with current selection"
+		}
 	},
 
 	-- Visual mode
@@ -215,5 +232,11 @@ return {
 		-- Move lines
 		["J"] = { ":move '>+1<cr>gv-gv", desc = "Move selected line(s) down" },
 		["K"] = { ":move '<-2<cr>gv-gv", desc = "Move selected line(s) down" },
+
+		-- Find and replace
+		["<leader>rr"] = {
+			':<C-u>lua require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })',
+			description = "Launch grugfar with current selection"
+		}
 	},
 }
