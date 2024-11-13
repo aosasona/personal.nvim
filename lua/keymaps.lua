@@ -244,6 +244,7 @@ return {
 		},
 		["<leader>fw"] = { builtin.grep_string, desc = "Search current word" },
 		["<leader>fg"] = { builtin.live_grep, desc = "Live grep in current directory/workspace" },
+		["<leader>fm"] = { "<cmd>Telescope harpoon marks<CR>", desc = "Show harpoon marks in telescope" },
 
 		-- Find and replace
 		["<leader>rc"] = {
@@ -303,3 +304,4 @@ return {
 		},
 	},
 }
+
