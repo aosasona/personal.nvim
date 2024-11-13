@@ -3,11 +3,36 @@ local utils = require("utils")
 local resession = require("resession")
 local builtin = require("telescope.builtin")
 
-
 return {
 	-- Normal mode
 	n = {
 		["<Esc>"] = { "<cmd>nohlsearch<CR>" },
+
+		-- Show yazi
+		["<leader>\\"] = { "<cmd>Yazi cwd<CR>", desc = "Show Yazi file explorer" },
+
+		-- Ufo
+		["zR"] = {
+			function()
+				require("ufo").openAllFolds()
+			end,
+			desc = "Open all folds",
+		},
+		["zM"] = {
+			function()
+				require("ufo").closeAllFolds()
+			end,
+			desc = "Close all folds",
+		},
+		["K"] = {
+			function()
+				local winid = require("ufo").peekFoldedLinesUnderCursor()
+				if not winid then
+					vim.lsp.buf.hover()
+				end
+			end,
+			desc = "Hover to show documentation or peek folded lines",
+		},
 
 		-- Splits
 		["<C-\\>"] = { "<cmd>:vsplit<CR>", desc = "Split vertically" },
@@ -137,7 +162,6 @@ return {
 		["gl"] = { "<cmd>lua vim.diagnostic.open_float()<CR>", noremap = true, desc = "Show diagnostic info" },
 		["gI"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", noremap = true, desc = "Go to implementation" },
 		["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", noremap = true, desc = "Show references" },
-		["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>", noremap = true, desc = "Hover to show documentation" },
 
 		["<leader>l"] = { "", desc = "LSP" },
 		["<leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", noremap = true, desc = "Show code action menu" },
@@ -206,14 +230,23 @@ return {
 
 		-- Find and replace
 		["<leader>rc"] = {
-			function() require('grug-far').open({ prefills = { search = vim.fn.expand("<cword>") } }) end,
+			function()
+				require("grug-far").open({ prefills = { search = vim.fn.expand("<cword>") } })
+			end,
 			desc = "Find and replace current word",
 		},
-		["<leader>rr"] = { function() require('grug-far').open({ transient = true }) end, desc = "Launch grugfar as a transient buffer" },
+		["<leader>rr"] = {
+			function()
+				require("grug-far").open({ transient = true })
+			end,
+			desc = "Launch grugfar as a transient buffer",
+		},
 		["<leader>rf"] = {
-			function() require('grug-far').open({ prefills = { paths = vim.fn.expand("%") } }) end,
-			description = "Find and replace in current file"
-		}
+			function()
+				require("grug-far").open({ prefills = { paths = vim.fn.expand("%") } })
+			end,
+			description = "Find and replace in current file",
+		},
 	},
 
 	-- Select mode
@@ -222,8 +255,8 @@ return {
 		["<leader>/"] = { "gc", noremap = false, desc = "Toggle commenting current selection" },
 		["<leader>rr"] = {
 			':<C-u>lua require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })',
-			description = "Launch grugfar with current selection"
-		}
+			description = "Launch grugfar with current selection",
+		},
 	},
 
 	-- Visual mode
@@ -236,7 +269,7 @@ return {
 		-- Find and replace
 		["<leader>rr"] = {
 			':<C-u>lua require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })',
-			description = "Launch grugfar with current selection"
-		}
+			description = "Launch grugfar with current selection",
+		},
 	},
 }

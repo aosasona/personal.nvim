@@ -1,7 +1,6 @@
 return {
-	{ "rcarriga/nvim-notify",  as = "notify" },
-	{ 'kevinhwang91/nvim-ufo', dependencies = { 'kevinhwang91/promise-async' } },
-	{ "tpope/vim-sleuth",      lazy = false },
+	{ "rcarriga/nvim-notify", as = "notify" },
+	{ "tpope/vim-sleuth", lazy = false },
 	{
 		"MagicDuck/grug-far.nvim",
 		config = function()
@@ -27,7 +26,19 @@ return {
 		config = function()
 			local configs = require("nvim-treesitter.configs")
 			configs.setup({
-				ensure_installed = { "php", "css", "html", "javascript", "lua", "regex" },
+				ensure_installed = {
+					"phpdoc",
+					"php",
+					"css",
+					"html",
+					"javascript",
+					"lua",
+					"regex",
+					"go",
+					"rust",
+					"typescript",
+					"typst",
+				},
 				sync_install = false,
 				highlight = { enable = true },
 				indent = { enable = true },
@@ -43,7 +54,7 @@ return {
 	{
 		"f-person/git-blame.nvim",
 		config = function()
-			require("gitblame").setup({})
+			require("gitblame").setup({ enabled = false })
 		end,
 	},
 	{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
@@ -106,6 +117,14 @@ return {
 					lsp = true,
 				},
 			})
+		end,
+	},
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "VeryLazy",
+		opts = {},
+		config = function(_, opts)
+			require("lsp_signature").setup(opts)
 		end,
 	},
 }

@@ -34,14 +34,25 @@ local opts = {
 		showmatch = true,
 		scrolloff = 8,
 
+		tabstop = 4,
+		shiftwidth = 4,
+		expandtab = false,
+		smarttab = true,
+
 		-- Code folding using Treesitter
-		foldenable = false,
-		foldmethod = "expr",
-		foldexpr = "v:lua.vim.treesitter.foldexpr()",
-		foldcolumn = "0",
-		foldtext = "",
-		foldnestmax = 3,
-		foldlevel = 99,
+		-- foldenable = false,
+		-- foldmethod = "expr",
+		-- foldexpr = "v:lua.vim.treesitter.foldexpr()",
+		-- foldcolumn = "0",
+		-- foldtext = "",
+		-- foldnestmax = 3,
+		-- foldlevel = 99,
+
+		-- Code folding using nvim-ufo
+		-- foldcolumn = "1", -- '0' is not bad
+		-- foldlevel = 99, -- Using ufo provider need a large value, feel free to decrease the value,
+		-- foldlevelstart = 99,
+		-- foldenable = true,
 
 		-- EOL fix
 		fixeol = false,
