@@ -1,9 +1,12 @@
 return {
-	{ "rcarriga/nvim-notify", as = "notify" },
-	{ "tpope/vim-sleuth",     lazy = false },
+	{ "rcarriga/nvim-notify",  as = "notify" },
+	{ 'kevinhwang91/nvim-ufo', dependencies = { 'kevinhwang91/promise-async' } },
+	{ "tpope/vim-sleuth",      lazy = false },
 	{
-		'MagicDuck/grug-far.nvim',
-		config = function() require('grug-far').setup({}); end
+		"MagicDuck/grug-far.nvim",
+		config = function()
+			require("grug-far").setup({})
+		end,
 	},
 
 	{
@@ -88,19 +91,21 @@ return {
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		config = function() require("ibl").setup() end,
+		config = function()
+			require("ibl").setup()
+		end,
 		opts = {},
 	},
 	{
 		"uga-rosa/ccc.nvim",
 		lazy = false,
 		config = function()
-			require('ccc').setup {
+			require("ccc").setup({
 				highlighter = {
 					auto_enable = true,
 					lsp = true,
-				}
-			}
-		end
+				},
+			})
+		end,
 	},
 }

@@ -2,14 +2,16 @@ return {
 	{
 		"williamboman/mason.nvim",
 		lazy = false,
-		config = function() require("mason").setup() end,
+		config = function()
+			require("mason").setup()
+		end,
 	},
 
 	{
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
 		config = function()
-			require("mason-lspconfig").setup({ ensure_installed = { "lua_ls" }, })
+			require("mason-lspconfig").setup({ ensure_installed = { "lua_ls", "gopls", "ts_ls" } })
 		end,
 	},
 
@@ -27,5 +29,5 @@ return {
 		end,
 	},
 
-	{ "neovim/nvim-lspconfig", lazy = false }
+	{ "neovim/nvim-lspconfig", lazy = false },
 }
