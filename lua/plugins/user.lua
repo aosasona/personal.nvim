@@ -73,11 +73,6 @@ return {
 			})
 		end,
 	},
-	{
-		"luckasRanarison/tailwind-tools.nvim",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
-		opts = {},
-	},
 	{ "tpope/vim-surround" },
 	{
 		"f-person/git-blame.nvim",
