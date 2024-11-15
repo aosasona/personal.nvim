@@ -9,6 +9,10 @@ return {
 	n = {
 		["<Esc>"] = { "<cmd>nohlsearch<CR>" },
 
+		-- Increment and decrement
+		["-"] = { "<c-x>", desc = "Decrement number" },
+		["+"] = { "<c-a>", desc = "Increment number" },
+
 		-- Show yazi
 		["<leader>\\"] = { "<cmd>Yazi cwd<CR>", desc = "Show Yazi file explorer" },
 
