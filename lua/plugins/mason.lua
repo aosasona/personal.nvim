@@ -3,7 +3,12 @@ return {
 		"williamboman/mason.nvim",
 		lazy = false,
 		config = function()
-			require("mason").setup()
+			require("mason").setup({
+				ensure_installed = {
+					"codespell",
+					"stylua",
+				},
+			})
 		end,
 	},
 
@@ -11,7 +16,32 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		lazy = false,
 		config = function()
-			require("mason-lspconfig").setup({ ensure_installed = { "lua_ls", "gopls", "ts_ls" } })
+			require("mason-lspconfig").setup({
+				ensure_installed = {
+					"ast_grep",
+					"astro",
+					"biome",
+					"css_variables",
+					"cssmodules_ls",
+					"cssls",
+					"dockerls",
+					"docker_compose_language_service",
+					"emmet_ls",
+					"gopls",
+					"html",
+					"jsonls",
+					"lua_ls",
+					"mdx_analyzer",
+					"phpactor",
+					"ruff_lsp",
+					"sqls",
+					"tailwindcss",
+					"tinymist",
+					"ts_ls",
+					"yamlls",
+					"vimls",
+				}
+			})
 		end,
 	},
 
