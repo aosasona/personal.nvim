@@ -3,6 +3,13 @@ return {
 	config = function()
 		local lspkind = require("lspkind")
 		local cmp = require("cmp")
+
+		lspkind.init({
+			symbol_map = { Copilot = "" },
+		})
+
+		vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+
 		cmp.setup({
 			formatting = {
 				format = lspkind.cmp_format({
