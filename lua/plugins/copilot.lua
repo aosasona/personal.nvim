@@ -9,7 +9,16 @@ return {
 					enabled = false,
 					auto_refresh = true,
 				},
-				suggestion = { enabled = false, }
+				suggestion = {
+					enabled = true,
+					auto_trigger = true,
+					keymap = {
+						accept = "<M-CR>",
+						dismiss = "<C-]>",
+						next = "<C-j>",
+						prev = "<C-k>",
+					}
+				}
 			})
 		end,
 	},

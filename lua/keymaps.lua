@@ -3,22 +3,11 @@ local utils = require("utils")
 local resession = require("resession")
 local builtin = require("telescope.builtin")
 local gitsigns = require("gitsigns")
--- local copilot_suggestion = require("copilot.suggestion")
 
 return {
 	-- Normal mode
 	n = {
 		["<Esc>"] = { "<cmd>nohlsearch<CR>" },
-		-- ["<Tab>"] = {
-		-- 	function()
-		-- 		if copilot_suggestion.is_visible() then
-		-- 			copilot_suggestion.accept_line()
-		-- 		else
-		-- 			return "<cmd>BufferNext<CR>"
-		-- 		end
-		-- 	end,
-		-- 	desc = "Accept copilot suggestion if available"
-		-- },
 
 		-- Increment and decrement
 		["-"] = { "<c-x>", desc = "Decrement number" },
