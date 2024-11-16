@@ -10,7 +10,6 @@ return {
 	{ "tpope/vim-sleuth",            lazy = false },
 	{
 		"wakatime/vim-wakatime",
-		lazy = false,
 	},
 	{ "aznhe21/actions-preview.nvim" },
 	{
@@ -131,7 +130,6 @@ return {
 	},
 	{
 		"uga-rosa/ccc.nvim",
-		lazy = false,
 		config = function()
 			require("ccc").setup({
 				highlighter = {
@@ -151,7 +149,6 @@ return {
 	},
 	{
 		'chomosuke/typst-preview.nvim',
-		lazy = false, -- or ft = 'typst'
 		version = '1.*',
 		build = function() require 'typst-preview'.update() end,
 	},
