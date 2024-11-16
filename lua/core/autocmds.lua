@@ -37,6 +37,15 @@ function M.setup()
 			vim.lsp.buf.format({ async = false })
 		end,
 	})
+
+	-- Go imports and formatting on save
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		pattern = "*.go",
+		callback = function()
+			require('go.format').goimports()
+		end,
+		group = vim.api.nvim_create_augroup("GoFormat", {}),
+	})
 end
 
 return M

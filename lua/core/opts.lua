@@ -1,6 +1,6 @@
 -- g is equivalent to vim.g
--- o is equivalent to vim.opt
-local opts = {
+-- opts is equivalent to vim.opt
+local options = {
 	g = {
 
 		have_nerd_font = true,
@@ -18,8 +18,10 @@ local opts = {
 		-- Gruvbox settings
 		gruvbox_material_background = "hard",
 		gruvbox_material_better_performance = 1,
+
+		copilot_assume_mapped = true,
 	},
-	o = {
+	opts = {
 		-- Line number
 		number = true,
 		relativenumber = true,
@@ -94,11 +96,11 @@ local M = {}
 
 -- Loads vim.g and vim.opt
 function M.load()
-	for key, value in pairs(opts.g) do
+	for key, value in pairs(options.g) do
 		vim.g[key] = value
 	end
 
-	for key, value in pairs(opts.o) do
+	for key, value in pairs(options.opts) do
 		vim.opt[key] = value
 	end
 end
