@@ -59,7 +59,9 @@ return {
 		["<C-Down>"] = { "<C-w>5-", desc = "Decrease height of window" },
 
 		-- Misc useful maps
-		["<leader>Q"] = { "<cmd>:qa<CR>", desc = "Exit and close all tabs" },
+		["<leader>q"] = { "<Cmd>confirm q<CR>", desc = "Quit Window" },
+		["<leader>Q"] = { "<cmd>confirm qa<CR>", desc = "Exit and close all tabs" },
+		["<leader>n"] = { "<Cmd>enew<CR>", desc = "New File" },
 		["<leader>w"] = { "<cmd>:w<CR>", desc = "Save buffer" },
 		["<leader>m"] = { "<cmd>:marks<CR>", desc = "Show all marks" },
 		["<leader>lH"] = {
@@ -68,6 +70,14 @@ return {
 			end,
 			desc = "Toggle inlay hints",
 		},
+
+		-- Plugins mappings
+		["<Leader>p"] = { "", desc = "Plugins" },
+		["<Leader>pi"] = { function() require("lazy").install() end, desc = "Plugins Install" },
+		["<Leader>ps"] = { function() require("lazy").home() end, desc = "Plugins Status" },
+		["<Leader>pS"] = { function() require("lazy").sync() end, desc = "Plugins Sync" },
+		["<Leader>pu"] = { function() require("lazy").check() end, desc = "Plugins Check Updates" },
+		["<Leader>pU"] = { function() require("lazy").update() end, desc = "Plugins Update" },
 
 		-- Copilot
 		["<leader>cs"] = {
@@ -153,38 +163,42 @@ return {
 		["<leader>xl"] = { "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
 		["<leader>xq"] = { "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
 
-		-- Code "actions" and LSP stuff
+		-- Code actions and navigation
 		["<leader>/"] = { "gcc", noremap = false, desc = "Toggle commenting line under cursor" },
 
-		["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", noremap = true, desc = "Go to definition" },
-		["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", noremap = true, desc = "Go to definition" },
-		["gt"] = {
-			"<cmd>tab split | lua vim.lsp.buf.definition()<CR>",
-			noremap = true,
-			desc = "Go to definition in new tab",
-		},
+		["gd"] = { function() vim.lsp.buf.definition() end, noremap = true, desc = "Go to definition" },
+		["gD"] = { function() vim.lsp.buf.declaration() end, noremap = true, desc = "Go to definition" },
+		["gt"] = { "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", noremap = true, desc = "Go to definition in new tab" },
+		["gy"] = { function() vim.lsp.buf.type_definition() end, desc = "Definition of current type" },
+		["gl"] = { function() vim.diagnostic.open_float() end, noremap = true, desc = "Show diagnostic info" },
+		["gI"] = { function() vim.lsp.buf.implementation() end, noremap = true, desc = "Go to implementation" },
+		["gr"] = { function() vim.lsp.buf.references() end, noremap = true, desc = "Show references" },
 
-		["gl"] = { "<cmd>lua vim.diagnostic.open_float()<CR>", noremap = true, desc = "Show diagnostic info" },
-		["gI"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>", noremap = true, desc = "Go to implementation" },
-		["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>", noremap = true, desc = "Show references" },
-
+		-- Language tools
 		["<leader>l"] = { "", desc = "LSP" },
 		["<leader>la"] = { require("actions-preview").code_actions, noremap = true, desc = "Show code action menu" },
-		["<leader>ld"] = { "<cmd>lua vim.diagnostic.open_float()<CR>", noremap = true, desc = "Show diagnostic info" },
+		["<Leader>lA"] = {
+			function() vim.lsp.buf.code_action { context = { only = { "source" }, diagnostics = {} } } end,
+			desc = "LSP source action",
+		},
+		["<Leader>ll"] = { function() vim.lsp.codelens.refresh() end, desc = "LSP CodeLens refresh", },
+		["<Leader>lL"] = { function() vim.lsp.codelens.run() end, desc = "LSP CodeLens run", },
+		["<leader>ld"] = { function() vim.diagnostic.open_float() end, noremap = true, desc = "Show diagnostic info" },
 		["<leader>lf"] = {
-			"<cmd>lua vim.lsp.buf.format({ async = true })<CR>",
+			function() vim.lsp.buf.format({ async = true }) end,
 			noremap = true,
 			desc = "Format current buffer",
 		},
-		["<leader>lr"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", noremap = true, desc = "Rename symbol" },
-		["<leader>ls"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", noremap = true, desc = "Show signature help" },
+		["<leader>lr"] = { function() vim.lsp.buf.rename() end, noremap = true, desc = "Rename symbol" },
+		["<Leader>lR"] = { function() vim.lsp.buf.references() end, desc = "Search references", },
+		["<leader>ls"] = { function() vim.lsp.buf.signature_help() end, noremap = true, desc = "Show signature help" },
 		["]d"] = {
-			"<cmd>lua vim.diagnostic.goto_next({ buffer = 0 })<cr>",
+			function() vim.diagnostic.goto_next({ buffer = 0 }) end,
 			noremap = true,
 			desc = "Go to next diagnosis",
 		},
 		["]D"] = {
-			"<cmd>lua vim.diagnostic.goto_prev({ buffer = 0 })<cr>",
+			function() vim.diagnostic.goto_prev({ buffer = 0 }) end,
 			noremap = true,
 			desc = "Go to previous diagnosis",
 		},
@@ -340,6 +354,10 @@ return {
 		-- Gitsigns
 		["<leader>gs"] = { function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, desc = "Stage current hunk" },
 		["<leader>gr"] = { function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end, desc = "Undo stage current hunk" },
+
+		-- Indentation
+		["<Tab>"] = { ">gv", desc = "Indent line" },
+		["<S-Tab>"] = { "<gv", desc = "Unindent line" },
 	},
 
 	-- Visual mode
