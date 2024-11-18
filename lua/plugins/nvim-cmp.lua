@@ -1,7 +1,7 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
-		dependencies = { "L3MON4D3/LuaSnip", "onsails/lspkind-nvim" },
+		dependencies = { "L3MON4D3/LuaSnip", "onsails/lspkind-nvim", "hrsh7th/cmp-path" },
 		config = function()
 			local luasnip = require("luasnip")
 			local cmp = require("cmp")
