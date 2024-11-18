@@ -2,7 +2,7 @@ return {
 	{ "rcarriga/nvim-notify", as = "notify" },
 	{ "andweeb/presence.nvim" },
 	{
-		"NvChad/nvim-colorizer.lua",
+		"norcalli/nvim-colorizer.lua",
 		config = function()
 			require 'colorizer'.setup()
 		end
