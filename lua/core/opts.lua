@@ -90,6 +90,9 @@ local options = {
 		-- Set highlight on search, but clear on pressing <Esc> in normal mode
 		hlsearch = true,
 	},
+	extensions = {
+		["mdx"] = "markdown"
+	}
 }
 
 local M = {}
@@ -103,6 +106,10 @@ function M.load()
 	for key, value in pairs(options.opts) do
 		vim.opt[key] = value
 	end
+
+	vim.filetype.add({
+		extension = options.extensions
+	})
 end
 
 return M

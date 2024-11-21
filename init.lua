@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.opt.termguicolors = true
 
 -- ############# Lazy.nvim ############## --
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
