@@ -7,20 +7,24 @@ return {
 
 			conform.setup({
 				formatters_by_ft = {
+					astro = { "biome" },
+					css = { "biome" },
 					javascript = { "biome" },
 					typescript = { "biome" },
 					javascriptreact = { "biome" },
 					typescriptreact = { "biome" },
+					["typescript.tsx"] = { "biome" },
 					svelte = { "biome" },
-					css = { "prettier" },
+					json = { "biome" },
+					jsonc = { "biome" },
 					html = { "prettier" },
-					json = { "prettier" },
 					yaml = { "yamlfmt" },
 					markdown = { "prettier" },
 					graphql = { "prettier" },
 					lua = { "stylua" },
 					python = { "isort", "black" },
 					typst = { "typstfmt" },
+					vue = { "biome" },
 				},
 
 				format_on_save = {
