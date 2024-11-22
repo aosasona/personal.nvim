@@ -31,18 +31,11 @@ function M.setup()
 		end,
 	})
 
-	-- Autoformat on save
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		callback = function()
-			vim.lsp.buf.format({ async = false })
-		end,
-	})
-
 	-- Go imports and formatting on save
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		pattern = "*.go",
 		callback = function()
-			require('go.format').goimports()
+			require("go.format").goimports()
 		end,
 		group = vim.api.nvim_create_augroup("GoFormat", {}),
 	})
