@@ -1,12 +1,21 @@
 return {
+	{ "neovim/nvim-lspconfig", lazy = false },
+
 	{
 		"williamboman/mason.nvim",
 		lazy = false,
 		config = function()
 			require("mason").setup({
 				ensure_installed = {
+					"biome",
+					"black",
 					"codespell",
+					"isort",
+					"prettier",
+					"prettierd",
 					"stylua",
+					"typstfmt",
+					"yamlfmt",
 				},
 			})
 		end,
@@ -40,7 +49,7 @@ return {
 					"ts_ls",
 					"yamlls",
 					"vimls",
-				}
+				},
 			})
 		end,
 	},
@@ -56,5 +65,35 @@ return {
 		end,
 	},
 
-	{ "neovim/nvim-lspconfig", lazy = false },
+	{
+		"stevearc/conform.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			local conform = require("conform")
+
+			conform.setup({
+				formatters_by_ft = {
+					javascript = { "biome" },
+					typescript = { "biome" },
+					javascriptreact = { "biome" },
+					typescriptreact = { "biome" },
+					svelte = { "biome" },
+					css = { "prettier" },
+					html = { "prettier" },
+					json = { "prettier" },
+					yaml = { "yamlfmt" },
+					markdown = { "prettier" },
+					graphql = { "prettier" },
+					lua = { "stylua" },
+					python = { "isort", "black" },
+				},
+
+				format_on_save = {
+					lsp_fallback = true,
+					async = false,
+					timeout_ms = 500,
+				},
+			})
+		end,
+	},
 }

@@ -1,5 +1,6 @@
 local utils = require("utils")
 
+local conform = require("conform")
 local resession = require("resession")
 local builtin = require("telescope.builtin")
 local gitsigns = require("gitsigns")
@@ -73,11 +74,36 @@ return {
 
 		-- Plugins mappings
 		["<Leader>p"] = { "", desc = "Plugins" },
-		["<Leader>pi"] = { function() require("lazy").install() end, desc = "Plugins Install" },
-		["<Leader>ps"] = { function() require("lazy").home() end, desc = "Plugins Status" },
-		["<Leader>pS"] = { function() require("lazy").sync() end, desc = "Plugins Sync" },
-		["<Leader>pu"] = { function() require("lazy").check() end, desc = "Plugins Check Updates" },
-		["<Leader>pU"] = { function() require("lazy").update() end, desc = "Plugins Update" },
+		["<Leader>pi"] = {
+			function()
+				require("lazy").install()
+			end,
+			desc = "Plugins Install",
+		},
+		["<Leader>ps"] = {
+			function()
+				require("lazy").home()
+			end,
+			desc = "Plugins Status",
+		},
+		["<Leader>pS"] = {
+			function()
+				require("lazy").sync()
+			end,
+			desc = "Plugins Sync",
+		},
+		["<Leader>pu"] = {
+			function()
+				require("lazy").check()
+			end,
+			desc = "Plugins Check Updates",
+		},
+		["<Leader>pU"] = {
+			function()
+				require("lazy").update()
+			end,
+			desc = "Plugins Update",
+		},
 
 		-- Copilot
 		["<leader>cs"] = {
@@ -166,39 +192,119 @@ return {
 		-- Code actions and navigation
 		["<leader>/"] = { "gcc", noremap = false, desc = "Toggle commenting line under cursor" },
 
-		["gd"] = { function() vim.lsp.buf.definition() end, noremap = true, desc = "Go to definition" },
-		["gD"] = { function() vim.lsp.buf.declaration() end, noremap = true, desc = "Go to definition" },
-		["gt"] = { "<cmd>tab split | lua vim.lsp.buf.definition()<CR>", noremap = true, desc = "Go to definition in new tab" },
-		["gy"] = { function() vim.lsp.buf.type_definition() end, desc = "Definition of current type" },
-		["gl"] = { function() vim.diagnostic.open_float() end, noremap = true, desc = "Show diagnostic info" },
-		["gI"] = { function() vim.lsp.buf.implementation() end, noremap = true, desc = "Go to implementation" },
-		["gr"] = { function() vim.lsp.buf.references() end, noremap = true, desc = "Show references" },
+		["gd"] = {
+			function()
+				vim.lsp.buf.definition()
+			end,
+			noremap = true,
+			desc = "Go to definition",
+		},
+		["gD"] = {
+			function()
+				vim.lsp.buf.declaration()
+			end,
+			noremap = true,
+			desc = "Go to definition",
+		},
+		["gt"] = {
+			"<cmd>tab split | lua vim.lsp.buf.definition()<CR>",
+			noremap = true,
+			desc = "Go to definition in new tab",
+		},
+		["gy"] = {
+			function()
+				vim.lsp.buf.type_definition()
+			end,
+			desc = "Definition of current type",
+		},
+		["gl"] = {
+			function()
+				vim.diagnostic.open_float()
+			end,
+			noremap = true,
+			desc = "Show diagnostic info",
+		},
+		["gI"] = {
+			function()
+				vim.lsp.buf.implementation()
+			end,
+			noremap = true,
+			desc = "Go to implementation",
+		},
+		["gr"] = {
+			function()
+				vim.lsp.buf.references()
+			end,
+			noremap = true,
+			desc = "Show references",
+		},
 
 		-- Language tools
 		["<leader>l"] = { "", desc = "LSP" },
 		["<leader>la"] = { require("actions-preview").code_actions, noremap = true, desc = "Show code action menu" },
 		["<Leader>lA"] = {
-			function() vim.lsp.buf.code_action { context = { only = { "source" }, diagnostics = {} } } end,
+			function()
+				vim.lsp.buf.code_action({ context = { only = { "source" }, diagnostics = {} } })
+			end,
 			desc = "LSP source action",
 		},
-		["<Leader>ll"] = { function() vim.lsp.codelens.refresh() end, desc = "LSP CodeLens refresh", },
-		["<Leader>lL"] = { function() vim.lsp.codelens.run() end, desc = "LSP CodeLens run", },
-		["<leader>ld"] = { function() vim.diagnostic.open_float() end, noremap = true, desc = "Show diagnostic info" },
+		["<Leader>ll"] = {
+			function()
+				vim.lsp.codelens.refresh()
+			end,
+			desc = "LSP CodeLens refresh",
+		},
+		["<Leader>lL"] = {
+			function()
+				vim.lsp.codelens.run()
+			end,
+			desc = "LSP CodeLens run",
+		},
+		["<leader>ld"] = {
+			function()
+				vim.diagnostic.open_float()
+			end,
+			noremap = true,
+			desc = "Show diagnostic info",
+		},
 		["<leader>lf"] = {
-			function() vim.lsp.buf.format({ async = true }) end,
+			function()
+				conform.format({ lsp_fallback = true, async = false, timeout_ms = 500 })
+			end,
 			noremap = true,
 			desc = "Format current buffer",
 		},
-		["<leader>lr"] = { function() vim.lsp.buf.rename() end, noremap = true, desc = "Rename symbol" },
-		["<Leader>lR"] = { function() vim.lsp.buf.references() end, desc = "Search references", },
-		["<leader>ls"] = { function() vim.lsp.buf.signature_help() end, noremap = true, desc = "Show signature help" },
+		["<leader>lr"] = {
+			function()
+				vim.lsp.buf.rename()
+			end,
+			noremap = true,
+			desc = "Rename symbol",
+		},
+		["<Leader>lR"] = {
+			function()
+				vim.lsp.buf.references()
+			end,
+			desc = "Search references",
+		},
+		["<leader>ls"] = {
+			function()
+				vim.lsp.buf.signature_help()
+			end,
+			noremap = true,
+			desc = "Show signature help",
+		},
 		["]d"] = {
-			function() vim.diagnostic.goto_next({ buffer = 0 }) end,
+			function()
+				vim.diagnostic.goto_next({ buffer = 0 })
+			end,
 			noremap = true,
 			desc = "Go to next diagnosis",
 		},
 		["]D"] = {
-			function() vim.diagnostic.goto_prev({ buffer = 0 }) end,
+			function()
+				vim.diagnostic.goto_prev({ buffer = 0 })
+			end,
 			noremap = true,
 			desc = "Go to previous diagnosis",
 		},
@@ -287,53 +393,150 @@ return {
 
 		-- Kulala bindings
 		["<leader>k"] = { "", desc = "Kulala" },
-		["<leader>kr"] = { function() require("kulala").run() end, desc = "Run the current request" },
-		["<leader>kj"] = { function() require("kulala").jump_next() end, desc = "Jump to the next request" },
-		["<leader>kk"] = { function() require("kulala").jump_prev() end, desc = "Jump to the previous request" },
-		["<leader>ks"] = { function() require("kulala").scratchpad() end, desc = "Open the scratchpad" },
+		["<leader>kr"] = {
+			function()
+				require("kulala").run()
+			end,
+			desc = "Run the current request",
+		},
+		["<leader>kj"] = {
+			function()
+				require("kulala").jump_next()
+			end,
+			desc = "Jump to the next request",
+		},
+		["<leader>kk"] = {
+			function()
+				require("kulala").jump_prev()
+			end,
+			desc = "Jump to the previous request",
+		},
+		["<leader>ks"] = {
+			function()
+				require("kulala").scratchpad()
+			end,
+			desc = "Open the scratchpad",
+		},
 		["<leader>ky"] = {
-			function() require("kulala").copy() end,
+			function()
+				require("kulala").copy()
+			end,
 			desc = "Copy the current request as the curl command",
 		},
-		["<leader>kq"] = { function() require("kulala").close() end, desc = "Closes the kulala window" },
-		["<leader>k/"] = { function() require("kulala").search() end, desc = "Search for a request" },
+		["<leader>kq"] = {
+			function()
+				require("kulala").close()
+			end,
+			desc = "Closes the kulala window",
+		},
+		["<leader>k/"] = {
+			function()
+				require("kulala").search()
+			end,
+			desc = "Search for a request",
+		},
 
 		-- Harpoon
 		["<leader>h"] = { "", desc = "Harpoon" },
-		["<leader>hh"] = { function() require("harpoon.ui").toggle_quick_menu() end, desc = "Toggle Harpoon UI" },
-		["<leader>h`"] = { function() require("harpoon.mark").add_file() end, desc = "Add current file to Harpoon" },
-		["<leader>hj"] = { function() require("harpoon.ui").nav_file(1) end, desc = "Go to next file in Harpoon" },
-		["<leader>hk"] = { function() require("harpoon.ui").nav_file(-1) end, desc = "Go to previous file in Harpoon" },
-		["<leader>h1"] = { function() require("harpoon.ui").nav_file(1) end, desc = "Go to file 1 in Harpoon" },
-		["<leader>h2"] = { function() require("harpoon.ui").nav_file(2) end, desc = "Go to file 2 in Harpoon" },
-		["<leader>h3"] = { function() require("harpoon.ui").nav_file(3) end, desc = "Go to file 3 in Harpoon" },
-		["<leader>h4"] = { function() require("harpoon.ui").nav_file(4) end, desc = "Go to file 4 in Harpoon" },
-		["<leader>h5"] = { function() require("harpoon.ui").nav_file(5) end, desc = "Go to file 5 in Harpoon" },
-		["<leader>h6"] = { function() require("harpoon.ui").nav_file(6) end, desc = "Go to file 6 in Harpoon" },
-		["<leader>h7"] = { function() require("harpoon.ui").nav_file(7) end, desc = "Go to file 7 in Harpoon" },
-		["<leader>h8"] = { function() require("harpoon.ui").nav_file(8) end, desc = "Go to file 8 in Harpoon" },
-		["<leader>h9"] = { function() require("harpoon.ui").nav_file(9) end, desc = "Go to file 9 in Harpoon" },
+		["<leader>hh"] = {
+			function()
+				require("harpoon.ui").toggle_quick_menu()
+			end,
+			desc = "Toggle Harpoon UI",
+		},
+		["<leader>h`"] = {
+			function()
+				require("harpoon.mark").add_file()
+			end,
+			desc = "Add current file to Harpoon",
+		},
+		["<leader>hj"] = {
+			function()
+				require("harpoon.ui").nav_file(1)
+			end,
+			desc = "Go to next file in Harpoon",
+		},
+		["<leader>hk"] = {
+			function()
+				require("harpoon.ui").nav_file(-1)
+			end,
+			desc = "Go to previous file in Harpoon",
+		},
+		["<leader>h1"] = {
+			function()
+				require("harpoon.ui").nav_file(1)
+			end,
+			desc = "Go to file 1 in Harpoon",
+		},
+		["<leader>h2"] = {
+			function()
+				require("harpoon.ui").nav_file(2)
+			end,
+			desc = "Go to file 2 in Harpoon",
+		},
+		["<leader>h3"] = {
+			function()
+				require("harpoon.ui").nav_file(3)
+			end,
+			desc = "Go to file 3 in Harpoon",
+		},
+		["<leader>h4"] = {
+			function()
+				require("harpoon.ui").nav_file(4)
+			end,
+			desc = "Go to file 4 in Harpoon",
+		},
+		["<leader>h5"] = {
+			function()
+				require("harpoon.ui").nav_file(5)
+			end,
+			desc = "Go to file 5 in Harpoon",
+		},
+		["<leader>h6"] = {
+			function()
+				require("harpoon.ui").nav_file(6)
+			end,
+			desc = "Go to file 6 in Harpoon",
+		},
+		["<leader>h7"] = {
+			function()
+				require("harpoon.ui").nav_file(7)
+			end,
+			desc = "Go to file 7 in Harpoon",
+		},
+		["<leader>h8"] = {
+			function()
+				require("harpoon.ui").nav_file(8)
+			end,
+			desc = "Go to file 8 in Harpoon",
+		},
+		["<leader>h9"] = {
+			function()
+				require("harpoon.ui").nav_file(9)
+			end,
+			desc = "Go to file 9 in Harpoon",
+		},
 
 		-- Gitsigns
 		["]c"] = {
 			function()
 				if vim.wo.diff then
-					vim.cmd.normal({ ']c', bang = true })
+					vim.cmd.normal({ "]c", bang = true })
 				else
-					gitsigns.nav_hunk('next')
+					gitsigns.nav_hunk("next")
 				end
 			end,
-			desc = "Go to the next hunk"
+			desc = "Go to the next hunk",
 		},
 		["[c"] = {
 			function()
 				if vim.wo.diff then
-					vim.cmd.normal({ '[c', bang = true })
+					vim.cmd.normal({ "[c", bang = true })
 				else
-					gitsigns.nav_hunk('prev')
+					gitsigns.nav_hunk("prev")
 				end
 			end,
-			desc = "Go to the previous hunk"
+			desc = "Go to the previous hunk",
 		},
 		["<leader>gs"] = { gitsigns.stage_hunk, desc = "Stage current hunk" },
 		["<leader>gu"] = { gitsigns.undo_stage_hunk, desc = "Undo stage current hunk" },
@@ -352,12 +555,31 @@ return {
 		},
 
 		-- Gitsigns
-		["<leader>gs"] = { function() gitsigns.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, desc = "Stage current hunk" },
-		["<leader>gr"] = { function() gitsigns.reset_hunk { vim.fn.line('.'), vim.fn.line('v') } end, desc = "Undo stage current hunk" },
+		["<leader>gs"] = {
+			function()
+				gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+			end,
+			desc = "Stage current hunk",
+		},
+		["<leader>gr"] = {
+			function()
+				gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+			end,
+			desc = "Undo stage current hunk",
+		},
 
 		-- Indentation
 		["<Tab>"] = { ">gv", desc = "Indent line" },
 		["<S-Tab>"] = { "<gv", desc = "Unindent line" },
+
+		-- Format
+		["<leader>lf"] = {
+			function()
+				conform.format({ lsp_fallback = true, async = false, timeout_ms = 500 })
+			end,
+			noremap = true,
+			desc = "Format current buffer",
+		},
 	},
 
 	-- Visual mode
