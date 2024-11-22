@@ -33,7 +33,13 @@ local options = {
 				},
 			},
 		}
-	}
+	},
+	tinymist = {
+		offset_encoding = "utf-8",
+		settings = {
+			exportPdf = "onSave",
+		},
+	},
 }
 
 local M = {}
