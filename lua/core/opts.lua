@@ -91,8 +91,8 @@ local options = {
 		hlsearch = true,
 	},
 	extensions = {
-		["mdx"] = "markdown"
-	}
+		["mdx"] = "markdown",
+	},
 }
 
 local M = {}
@@ -108,7 +108,7 @@ function M.load()
 	end
 
 	vim.filetype.add({
-		extension = options.extensions
+		extension = options.extensions,
 	})
 end
 

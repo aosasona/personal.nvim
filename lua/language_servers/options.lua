@@ -32,7 +32,7 @@ local options = {
 					globals = { "vim" },
 				},
 			},
-		}
+		},
 	},
 	tinymist = {
 		offset_encoding = "utf-8",
