@@ -34,12 +34,16 @@ local options = {
 			},
 		},
 	},
-	tinymist = {
-		offset_encoding = "utf-8",
+	["tinymist"] = {
 		settings = {
-			exportPdf = "onSave",
+			offset_encoding = "utf-8",
+			settings = {
+				exportPdf = "onSave",
+			},
 		},
 	},
+
+	["v_analyzer"] = {},
 }
 
 local M = {}
@@ -54,6 +58,12 @@ function M.merge_opts(server_name, opts)
 	end
 
 	return opts
+end
+
+function M.local_servers()
+	return {
+		"v_analyzer",
+	}
 end
 
 return M

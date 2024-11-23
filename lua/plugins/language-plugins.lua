@@ -23,7 +23,6 @@ return {
 					graphql = { "prettier" },
 					lua = { "stylua" },
 					python = { "isort", "black" },
-					typst = { "typstfmt" },
 					vue = { "biome" },
 				},
 
