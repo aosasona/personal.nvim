@@ -24,6 +24,7 @@ return {
 					lua = { "stylua" },
 					python = { "isort", "black" },
 					vue = { "biome" },
+					typst = { "typstfmt" },
 				},
 
 				format_on_save = {
