@@ -4,10 +4,10 @@ return {
 	{
 		"norcalli/nvim-colorizer.lua",
 		config = function()
-			require 'colorizer'.setup()
-		end
+			require("colorizer").setup()
+		end,
 	},
-	{ "tpope/vim-sleuth",            lazy = false },
+	{ "tpope/vim-sleuth", lazy = false },
 	{
 		"wakatime/vim-wakatime",
 	},
@@ -16,7 +16,7 @@ return {
 		"folke/ts-comments.nvim",
 		opts = {},
 		event = "VeryLazy",
-		enabled = vim.fn.has "nvim-0.10.0" == 1,
+		enabled = vim.fn.has("nvim-0.10.0") == 1,
 	},
 	{
 		"MagicDuck/grug-far.nvim",
@@ -33,8 +33,8 @@ return {
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
-			require('gitsigns').setup()
-		end
+			require("gitsigns").setup()
+		end,
 	},
 	{
 		"akinsho/git-conflict.nvim",
@@ -43,7 +43,9 @@ return {
 	},
 	{
 		"mistweaverco/kulala.nvim",
-		config = function() require("kulala").setup() end,
+		config = function()
+			require("kulala").setup()
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -148,26 +150,28 @@ return {
 		end,
 	},
 	{
-		'chomosuke/typst-preview.nvim',
-		version = '1.*',
-		build = function() require 'typst-preview'.update() end,
+		"chomosuke/typst-preview.nvim",
+		version = "1.*",
+		build = function()
+			require("typst-preview").update()
+		end,
 	},
 	{
 		"windwp/nvim-ts-autotag",
 		config = function()
-			require('nvim-ts-autotag').setup({})
-		end
+			require("nvim-ts-autotag").setup({})
+		end,
 	},
 	{
-		'pwntester/octo.nvim',
+		"pwntester/octo.nvim",
 		dependencies = {
-			'nvim-lua/plenary.nvim',
-			'nvim-telescope/telescope.nvim',
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope.nvim",
 			-- OR 'ibhagwan/fzf-lua',
-			'nvim-tree/nvim-web-devicons',
+			"nvim-tree/nvim-web-devicons",
 		},
 		config = function()
 			require("octo").setup()
-		end
-	}
+		end,
+	},
 }
