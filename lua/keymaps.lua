@@ -543,6 +543,9 @@ return {
 		["<leader>gr"] = { gitsigns.reset_hunk, desc = "Reset current hunk" },
 		["<leader>gp"] = { gitsigns.preview_hunk, desc = "Preview current hunk" },
 		["<leader>gd"] = { gitsigns.diffthis, desc = "Diff current file" },
+
+		-- Dbee
+		["<leader>db"] = { "<cmd>Dbee<CR>", desc = "Open Dbee" },
 	},
 
 	-- Select mode
