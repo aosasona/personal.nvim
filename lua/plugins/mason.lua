@@ -16,6 +16,7 @@ return {
 					"prettierd",
 					"stylua",
 					"typstfmt",
+					"sqlfmt",
 					"yamlfmt",
 				},
 			})
@@ -44,7 +45,6 @@ return {
 					"mdx_analyzer",
 					"phpactor",
 					"ruff_lsp",
-					"sqls",
 					"tailwindcss",
 					"tinymist",
 					"ts_ls",
