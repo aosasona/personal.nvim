@@ -43,7 +43,9 @@ local options = {
 		},
 	},
 
-	["sqls"] = {},
+	["sqls"] = {
+		cmd = { "sqls", "--config", "/Users/ayodeji/.config/sqls/config.yml" },
+	},
 
 	["v_analyzer"] = {},
 }
