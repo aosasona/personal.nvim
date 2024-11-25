@@ -43,6 +43,8 @@ local options = {
 		},
 	},
 
+	["sqls"] = {},
+
 	["v_analyzer"] = {},
 }
 
@@ -63,6 +65,7 @@ end
 function M.local_servers()
 	return {
 		"v_analyzer",
+		"sqls",
 	}
 end
 

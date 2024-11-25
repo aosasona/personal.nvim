@@ -16,7 +16,6 @@ return {
 					"prettierd",
 					"stylua",
 					"typstfmt",
-					"sqlfmt",
 					"yamlfmt",
 				},
 			})

@@ -24,7 +24,6 @@ return {
 					lua = { "stylua" },
 					python = { "isort", "black" },
 					vue = { "biome" },
-					sql = { "sqlfmt" },
 					typst = { "typstfmt" },
 				},
 
