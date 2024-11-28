@@ -30,7 +30,6 @@ return {
 				ensure_installed = {
 					"ast_grep",
 					"astro",
-					"biome",
 					"css_variables",
 					"cssmodules_ls",
 					"cssls",
