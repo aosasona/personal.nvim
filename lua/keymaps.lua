@@ -546,6 +546,7 @@ return {
 
 		-- Dbee
 		["<leader>db"] = { "<cmd>Dbee<CR>", desc = "Open Dbee" },
+		["<leader>dr"] = { "BB", desc = "Execute the current query" },
 	},
 
 	-- Select mode
@@ -582,6 +583,9 @@ return {
 			end,
 			noremap = true,
 			desc = "Format current buffer",
+
+			-- DBEE
+			["<leader>dr"] = { "BB", desc = "Execute the current query" },
 		},
 	},
 
@@ -597,5 +601,8 @@ return {
 			':<C-u>lua require("grug-far").with_visual_selection({ prefills = { paths = vim.fn.expand("%") } })',
 			description = "Launch grugfar with current selection",
 		},
+
+		-- DBEE
+		["<leader>dr"] = { "BB", desc = "Execute the current query" },
 	},
 }
