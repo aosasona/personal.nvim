@@ -176,8 +176,8 @@ return {
 	},
 	{
 		"RRethy/vim-illuminate",
-		config = function()
-			require("illuminate").setup({})
+		config = function(_, opts)
+			require("illuminate").configure(opts)
 		end,
 		opts = function()
 			return {
@@ -185,6 +185,9 @@ return {
 				min_count_to_highlight = 2,
 				large_file_cutoff = 2000,
 				large_file_overrides = { providers = { "lsp" } },
+				should_enable = function(_bufnr)
+					return true
+				end,
 			}
 		end,
 	},
