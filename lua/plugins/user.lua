@@ -174,4 +174,18 @@ return {
 			require("octo").setup()
 		end,
 	},
+	{
+		"RRethy/vim-illuminate",
+		config = function()
+			require("illuminate").setup({})
+		end,
+		opts = function()
+			return {
+				delay = 200,
+				min_count_to_highlight = 2,
+				large_file_cutoff = 2000,
+				large_file_overrides = { providers = { "lsp" } },
+			}
+		end,
+	},
 }

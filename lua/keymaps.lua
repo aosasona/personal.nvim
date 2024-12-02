@@ -547,6 +547,32 @@ return {
 		-- Dbee
 		["<leader>db"] = { "<cmd>Dbee<CR>", desc = "Open Dbee" },
 		["<leader>dr"] = { "BB", desc = "Execute the current query" },
+
+		-- Illuminate
+		["]r"] = {
+			function()
+				require("illuminate")["goto_next_reference"](false)
+			end,
+			desc = "Next reference",
+		},
+		["[r"] = {
+			function()
+				require("illuminate")["goto_prev_reference"](false)
+			end,
+			desc = "Previous reference",
+		},
+		["<Leader>ur"] = {
+			function()
+				require("illuminate").toggle_buf()
+			end,
+			desc = "Toggle reference highlighting (buffer)",
+		},
+		["<Leader>uR"] = {
+			function()
+				require("illuminate").toggle()
+			end,
+			desc = "Toggle reference highlighting (global)",
+		},
 	},
 
 	-- Select mode
