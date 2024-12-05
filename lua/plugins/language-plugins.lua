@@ -14,7 +14,7 @@ return {
 					javascriptreact = { "biome" },
 					typescriptreact = { "biome" },
 					["typescript.tsx"] = { "biome" },
-					go = { "gofumpt", "goimports" },
+					go = { "gofumpt", "goimports", "golines" },
 					svelte = { "biome" },
 					json = { "biome" },
 					jsonc = { "biome" },
