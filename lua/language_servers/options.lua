@@ -68,6 +68,7 @@ function M.local_servers()
 	return {
 		"v_analyzer",
 		"sqls",
+		"gleam",
 	}
 end
 
