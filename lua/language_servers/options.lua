@@ -37,9 +37,7 @@ local options = {
 	["tinymist"] = {
 		settings = {
 			offset_encoding = "utf-8",
-			settings = {
-				exportPdf = "onSave",
-			},
+			exportPdf = "onSave",
 		},
 	},
 
