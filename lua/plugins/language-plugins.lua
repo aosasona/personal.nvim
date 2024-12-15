@@ -24,6 +24,7 @@ return {
 					graphql = { "prettier" },
 					lua = { "stylua" },
 					python = { "isort", "black" },
+					php = { "phpactor" },
 					vue = { "biome" },
 					sql = { "sqlfmt" },
 					typst = { "typstfmt" },
