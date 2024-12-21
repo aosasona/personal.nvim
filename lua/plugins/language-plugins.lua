@@ -6,6 +6,13 @@ return {
 			local conform = require("conform")
 
 			conform.setup({
+				formatters = {
+					inkofmt = {
+						command = "inko",
+						args = { "fmt", "$FILENAME" },
+						stdin = false,
+					},
+				},
 				formatters_by_ft = {
 					astro = { "biome" },
 					css = { "biome" },
@@ -15,6 +22,7 @@ return {
 					typescriptreact = { "biome" },
 					["typescript.tsx"] = { "biome" },
 					go = { "gofumpt", "goimports", "golines" },
+					inko = { "inkofmt" },
 					svelte = { "biome" },
 					json = { "biome" },
 					jsonc = { "biome" },
@@ -24,7 +32,7 @@ return {
 					graphql = { "prettier" },
 					lua = { "stylua" },
 					python = { "isort", "black" },
-					php = { "phpactor" },
+					-- php = { "intelephense" },
 					vue = { "biome" },
 					sql = { "sqlfmt" },
 					typst = { "typstfmt" },

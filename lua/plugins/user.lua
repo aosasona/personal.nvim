@@ -1,4 +1,5 @@
 return {
+	{ "inko-lang/inko.vim" },
 	{ "rcarriga/nvim-notify", as = "notify" },
 	{ "andweeb/presence.nvim" },
 	{
