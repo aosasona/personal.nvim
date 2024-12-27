@@ -17,15 +17,9 @@ return {
 						dismiss = "<C-]>",
 						next = "<C-j>",
 						prev = "<C-k>",
-					}
-				}
+					},
+				},
 			})
 		end,
 	},
-	{
-		"zbirenbaum/copilot-cmp",
-		config = function()
-			require("copilot_cmp").setup()
-		end
-	}
 }
