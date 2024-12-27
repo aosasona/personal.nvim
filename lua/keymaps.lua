@@ -175,6 +175,7 @@ return {
 		-- Trouble
 		["<leader>x"] = { "", desc = "Trouble" },
 		["<leader>xx"] = { "<cmd>Trouble diagnostics toggle focus=true<cr>", desc = "Diagnostics (Trouble)" },
+		["<leader>xt"] = { "<cmd>Trouble todo toggle focus=true<cr>", desc = "Todo (Trouble)" },
 		["<leader>xb"] = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer diagnostics (trouble)" },
 		["<leader>xs"] = {
 			"<cmd>Trouble symbols toggle pinned=true results.win.relative=win results.win.position=right<cr>",
