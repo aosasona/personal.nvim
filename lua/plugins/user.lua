@@ -97,7 +97,6 @@ return {
 			require("todo-comments").setup({})
 		end,
 	},
-	{ "numToStr/Comment.nvim", opts = {} },
 	{
 		"windwp/nvim-autopairs",
 		config = function()

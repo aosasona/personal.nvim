@@ -42,7 +42,7 @@ return {
 					"lua_ls",
 					"mdx_analyzer",
 					"phpactor",
-					"ruff_lsp",
+					"ruff",
 					"tailwindcss",
 					"tinymist",
 					"ts_ls",
