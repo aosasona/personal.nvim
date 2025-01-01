@@ -93,6 +93,7 @@ local options = {
 	extensions = {
 		["mdx"] = "markdown",
 		["v"] = "v",
+		["dbml"] = "dbml",
 	},
 }
 

@@ -1,5 +1,6 @@
 return {
 	{ "inko-lang/inko.vim" },
+	{ "jidn/vim-dbml" },
 	{ "rcarriga/nvim-notify", as = "notify" },
 	{ "andweeb/presence.nvim" },
 	{
