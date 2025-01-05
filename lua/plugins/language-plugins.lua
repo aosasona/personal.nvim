@@ -35,7 +35,7 @@ return {
 					-- php = { "intelephense" },
 					vue = { "biome" },
 					sql = { "sqlfmt" },
-					typst = { "typstyle" },
+					typst = { "typstfmt" },
 				},
 
 				format_on_save = {
