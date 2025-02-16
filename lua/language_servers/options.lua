@@ -35,6 +35,23 @@ local config = {
 				},
 			},
 		},
+		["gopls"] = {
+			settings = {
+				gopls = {
+					completeUnimported = true,
+					usePlaceholders = true,
+					enhancedHover = true,
+					linksInHover = true,
+					analyses = {
+						unusedparams = true,
+						nilerr = true,
+						unusedvariable = true,
+					},
+					staticcheck = true,
+					gofumpt = true,
+				},
+			},
+		},
 		["tinymist"] = {
 			settings = {
 				offset_encoding = "utf-8",
