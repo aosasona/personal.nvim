@@ -5,6 +5,19 @@ return {
 	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
 		"AlexvZyl/nordic.nvim",
-		config = function() require("nordic").load() end,
+		config = function()
+			require("nordic").load()
+		end,
+	},
+	{
+		"cdmill/neomodern.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("neomodern").setup({
+				-- transparent = true,
+			})
+			require("neomodern").load()
+		end,
 	},
 }
