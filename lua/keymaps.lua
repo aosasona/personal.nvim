@@ -371,6 +371,18 @@ return {
 		["<leader>fw"] = { builtin.grep_string, desc = "Search current word" },
 		["<leader>fg"] = { builtin.live_grep, desc = "Live grep in current directory/workspace" },
 		["<leader>fm"] = { "<cmd>Telescope harpoon marks<CR>", desc = "Show harpoon marks in telescope" },
+		["<leader>fG"] = {
+			function()
+				require("git_branch").files()
+			end,
+			desc = "Search diff files",
+		},
+		["<leader>fr"] = {
+			function()
+				require("telescope").extensions.resession.resession()
+			end,
+			desc = "Search saved sessions",
+		},
 
 		-- Find and replace
 		["<leader>rc"] = {
