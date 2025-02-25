@@ -21,7 +21,10 @@ function M.get_session_name()
 	local name = vim.fn.getcwd()
 	local branch = vim.trim(vim.fn.system("git branch --show-current"))
 	if vim.v.shell_error == 0 then
-		return name .. branch
+		name = vim.fn.fnamemodify(name, ":t")
+		branch = string.gsub(branch, "-", "_")
+
+		return name .. "_" .. branch
 	else
 		return name
 	end
