@@ -31,6 +31,7 @@ return {
 					markdown = { "prettier" },
 					graphql = { "prettier" },
 					lua = { "stylua" },
+					swift = { "swiftformat" },
 					python = { "isort", "black" },
 					-- php = { "intelephense" },
 					vue = { "biome" },
@@ -55,12 +56,13 @@ return {
 		config = function()
 			local lint = require("lint")
 
-			-- lint.linters_by_ft = {
-			-- 	javascript = { "biome" },
-			-- 	typescript = { "biome" },
-			-- 	javascriptreact = { "biome" },
-			-- 	typescriptreact = { "biome" },
-			-- }
+			lint.linters_by_ft = {
+				-- 	javascript = { "biome" },
+				-- 	typescript = { "biome" },
+				-- 	javascriptreact = { "biome" },
+				-- 	typescriptreact = { "biome" },
+				swift = { "swiftlint" },
+			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
