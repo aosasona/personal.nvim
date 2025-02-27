@@ -1,5 +1,57 @@
 local M = {}
 
+function M.use_swift_template()
+	vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, {
+		group = vim.api.nvim_create_augroup("SwiftTemplate", { clear = true }),
+		pattern = "*.swift",
+		callback = function(ev)
+			local lines = #vim.api.nvim_buf_get_lines(ev.buf, 0, -1, false)
+
+			if lines > 1 then
+				return
+			end
+
+			local filename = string.match(ev.file, "([^/]*)%.swift")
+			local name = filename
+
+			local basepath = os.getenv("HOME") .. "/.config/nvim/assets/xcodebuild/templates/"
+			local templates = { "View", "ViewModel", "Builder", "Router", "Tests", "Spec" }
+
+			local template
+			local cursor
+
+			for _, templateSuffix in ipairs(templates) do
+				if vim.endswith(filename, templateSuffix) then
+					template = vim.fn.readfile(basepath .. string.lower(templateSuffix) .. ".txt")
+					name = string.gsub(name, templateSuffix, "")
+					break
+				end
+			end
+
+			template = template or vim.fn.readfile(basepath .. "empty.txt")
+
+			for i = 1, #template do
+				template[i] = string.gsub(template[i], "{date}", os.date("%d/%m/%Y"))
+				template[i] = string.gsub(template[i], "{filename}", filename)
+				template[i] = string.gsub(template[i], "{name}", name)
+
+				if cursor == nil and string.find(template[i], "{cursor}") then
+					cursor = { i, tonumber(string.find(template[i], "{cursor}")) + 1 }
+				end
+				template[i] = string.gsub(template[i], "{cursor}", " ")
+			end
+
+			vim.api.nvim_buf_set_lines(ev.buf, 0, -1, false, template)
+
+			if cursor then
+				vim.api.nvim_win_set_cursor(0, cursor)
+			end
+
+			vim.cmd("w")
+		end,
+	})
+end
+
 function M.setup()
 	-- Highlight on yank
 	vim.api.nvim_create_autocmd("TextYankPost", {
@@ -30,6 +82,8 @@ function M.setup()
 			resession.save(session_name(), { dir = "dirsession", notify = false })
 		end,
 	})
+
+	M.use_swift_template()
 
 	-- Go imports and formatting on save
 	-- vim.api.nvim_create_autocmd("BufWritePre", {
