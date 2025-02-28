@@ -32,7 +32,7 @@ return {
 					graphql = { "prettier" },
 					lua = { "stylua" },
 					swift = { "swiftformat" },
-					python = { "isort", "black" },
+					python = { "isort", "ruff" },
 					-- php = { "intelephense" },
 					vue = { "biome" },
 					sql = { "sqlfmt" },
@@ -62,6 +62,7 @@ return {
 				-- 	javascriptreact = { "biome" },
 				-- 	typescriptreact = { "biome" },
 				swift = { "swiftlint" },
+				python = { "ruff" },
 			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
