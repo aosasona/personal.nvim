@@ -40,4 +40,12 @@ function M.toggle_spellcheck()
 	end
 end
 
+function M.toggle_colormode()
+	if vim.opt.background:get() == "dark" then
+		vim.opt.background = "light"
+	else
+		vim.opt.background = "dark"
+	end
+end
+
 return M

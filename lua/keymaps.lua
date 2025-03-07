@@ -17,6 +17,13 @@ return {
 		-- Show yazi
 		["<leader>\\"] = { "<cmd>Yazi cwd<CR>", desc = "Show Yazi file explorer" },
 
+		["<leader>~"] = {
+			function()
+				utils.toggle_colormode()
+			end,
+			desc = "Toggle color mode (light/dark)",
+		},
+
 		-- Ufo
 		["zR"] = {
 			function()
