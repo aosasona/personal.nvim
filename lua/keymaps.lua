@@ -17,11 +17,17 @@ return {
 		-- Show yazi
 		["<leader>\\"] = { "<cmd>Yazi cwd<CR>", desc = "Show Yazi file explorer" },
 
-		["<leader>~"] = {
+		["<leader>~~"] = {
 			function()
 				utils.toggle_colormode()
 			end,
 			desc = "Toggle color mode (light/dark)",
+		},
+		["<leader>nx"] = {
+			function()
+				require("notify").dismiss()
+			end,
+			desc = "Dismiss notification",
 		},
 
 		-- Ufo
