@@ -1,7 +1,19 @@
 return {
 	{ "inko-lang/inko.vim" },
 	{ "jidn/vim-dbml" },
-	{ "rcarriga/nvim-notify", as = "notify" },
+	{
+		"rcarriga/nvim-notify",
+		as = "notify",
+		config = function()
+			require("notify").setup({
+				stages = "fade_in_slide_out",
+				fps = 60,
+				timeout = 2000,
+				background_colour = "#181825",
+				top_down = false,
+			})
+		end,
+	},
 	{ "andweeb/presence.nvim" },
 	{
 		"norcalli/nvim-colorizer.lua",
