@@ -45,7 +45,6 @@ return {
 					"ruff",
 					"tailwindcss",
 					"tinymist",
-					"ts_ls",
 					"yamlls",
 					"vimls",
 				},
