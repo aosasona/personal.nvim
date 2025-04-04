@@ -79,6 +79,18 @@ local config = {
 					or util.find_git_ancestor(filename)
 			end,
 		},
+		["golangci_lint_ls"] = {
+			default_config = {
+				cmd = { "golangci-lint-langserver" },
+				init_options = {
+					command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1" },
+				},
+				filetypes = { "go" },
+				root_dir = function(fname)
+					return require("lspconfig.util").root_pattern("go.mod", ".git")(fname) or vim.fn.getcwd()
+				end,
+			},
+		},
 	},
 
 	-- List of servers that are installed locally (i.e. not installed with mason)
@@ -87,6 +99,7 @@ local config = {
 		"sqls",
 		"gleam",
 		"sourcekit",
+		"golangci_lint_ls",
 	},
 }
 
