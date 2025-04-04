@@ -6,14 +6,13 @@ return {
 		provider = "ollama",
 		cursor_applying_provider = "ollama",
 		ollama = {
-			model = "qwen2.5:latest",
-			-- model = "llama3.2:latest",
+			model = "llama3.2:latest",
 		},
 		behaviour = {
 			enable_cursor_planning_mode = true, -- enable cursor planning mode!
 		},
 		rag_service = {
-			enabled = true, -- Enables the RAG service
+			enabled = false, -- Enables the RAG service
 			host_mount = os.getenv("HOME") .. "/Developer", -- The host mount directory for the RAG service
 			provider = "ollama", -- The provider to use for RAG service (e.g. openai or ollama)
 			llm_model = "llama3.2:latest", -- The LLM model to use for RAG service
