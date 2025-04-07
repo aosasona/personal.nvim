@@ -80,16 +80,14 @@ local config = {
 			end,
 		},
 		["golangci_lint_ls"] = {
-			default_config = {
-				cmd = { "golangci-lint-langserver" },
-				init_options = {
-					command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1" },
-				},
-				filetypes = { "go" },
-				root_dir = function(fname)
-					return require("lspconfig.util").root_pattern("go.mod", ".git")(fname) or vim.fn.getcwd()
-				end,
+			cmd = { "golangci-lint-langserver" },
+			init_options = {
+				command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1" },
 			},
+			filetypes = { "go" },
+			root_dir = function(fname)
+				return require("lspconfig.util").root_pattern("go.mod", ".git")(fname) or vim.fn.getcwd()
+			end,
 		},
 	},
 
