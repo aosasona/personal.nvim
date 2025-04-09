@@ -82,7 +82,14 @@ local config = {
 		["golangci_lint_ls"] = {
 			cmd = { "golangci-lint-langserver" },
 			init_options = {
-				command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1" },
+				command = {
+					"golangci-lint",
+					"run",
+					"--output.json.path",
+					"stdout",
+					"--show-stats=false",
+					"--issues-exit-code=1",
+				},
 			},
 			filetypes = { "go" },
 			root_dir = function(fname)
@@ -97,7 +104,6 @@ local config = {
 		"sqls",
 		"gleam",
 		"sourcekit",
-		"golangci_lint_ls",
 	},
 }
 
