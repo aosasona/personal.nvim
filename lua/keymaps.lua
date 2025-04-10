@@ -17,6 +17,14 @@ return {
 		-- Show yazi
 		["<leader>\\"] = { "<cmd>Yazi cwd<CR>", desc = "Show Yazi file explorer" },
 
+		-- Toggle Oil in floating window
+		["<leader>o"] = {
+			function()
+				require("oil").toggle_float()
+			end,
+			desc = "Open/close Oil in floating window",
+		},
+
 		["<leader>~~"] = {
 			function()
 				utils.toggle_colormode()

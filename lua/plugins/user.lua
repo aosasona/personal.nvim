@@ -38,12 +38,6 @@ return {
 			require("grug-far").setup({})
 		end,
 	},
-
-	{
-		"stevearc/oil.nvim",
-		opts = {},
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-	},
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
