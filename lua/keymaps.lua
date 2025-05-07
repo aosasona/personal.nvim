@@ -134,6 +134,12 @@ return {
 			desc = "Toggle copilot suggestion",
 		},
 
+		-- CSV View
+		["<leader>cv"] = {
+			"<cmd>CsvViewToggle display_mode=border header_lnum=1<CR>",
+			desc = "Toggle CSV view",
+		},
+
 		-- Spell check
 		["<leader>sp"] = { utils.toggle_spellcheck, desc = "Toggle spellcheck" },
 		["<leader>sz"] = { "[s1z=``", desc = "Fix spelling errors" },
