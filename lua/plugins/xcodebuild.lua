@@ -5,6 +5,7 @@ return {
 		"MunifTanjim/nui.nvim",
 		"folke/snacks.nvim",
 	},
+	lazy = false,
 	config = function()
 		require("xcodebuild").setup({})
 	end,
