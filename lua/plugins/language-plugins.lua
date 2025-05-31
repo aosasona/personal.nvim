@@ -61,7 +61,7 @@ return {
 				-- 	typescript = { "biome" },
 				-- 	javascriptreact = { "biome" },
 				-- 	typescriptreact = { "biome" },
-				swift = { "swiftlint" },
+				-- swift = { "swiftlint" },
 				python = { "ruff" },
 			}
 
