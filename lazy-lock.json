@@ -27,6 +27,7 @@
   "img-clip.nvim": { "branch": "main", "commit": "0bb8b5ced45c2672c70184c87d014194b0705815" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
   "inko.vim": { "branch": "main", "commit": "5dbc40375c9da4a2fcc27bf7e187267c2b575121" },
+  "kulala.nvim": { "branch": "main", "commit": "e44974298c2df6d431f848f2ed9d8cf7aa39b25c" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "lazygit.nvim": { "branch": "main", "commit": "b9eae3badab982e71abab96d3ee1d258f0c07961" },
   "lsp_signature.nvim": { "branch": "master", "commit": "e92b4e7073345b2a30a56b20db3d541a9aa2771e" },

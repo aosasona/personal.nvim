@@ -49,12 +49,12 @@ return {
 		version = "*",
 		config = true,
 	},
-	-- 	{
-	--		"mistweaverco/kulala.nvim",
-	--		config = function()
-	--			require("kulala").setup()
-	--		end,
-	--	},
+	{
+		"mistweaverco/kulala.nvim",
+		-- config = function()
+		-- require("kulala").setup()
+		-- end,
+	},
 	{ "tpope/vim-surround" },
 	{
 		"f-person/git-blame.nvim",
