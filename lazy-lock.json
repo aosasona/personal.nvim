@@ -1,7 +1,7 @@
 {
   "LuaSnip": { "branch": "master", "commit": "458560534a73f7f8d7a11a146c801db00b081df0" },
   "actions-preview.nvim": { "branch": "master", "commit": "36513ad213855d497b7dd3391a24d1d75d58e36f" },
-  "avante.nvim": { "branch": "main", "commit": "bc403ddcbf98c4181ee2a7efd35cd1e18a2fdc5c" },
+  "avante.nvim": { "branch": "main", "commit": "b54b806f71a3fc52fe2814c3d4a60fd9efa6a43c" },
   "barbar.nvim": { "branch": "master", "commit": "53b5a2f34b68875898f0531032fbf090e3952ad7" },
   "bore.nvim": { "branch": "master", "commit": "608942a0e28b08ad75d32764b1a2e14018b35be5" },
   "ccc.nvim": { "branch": "main", "commit": "1283eef5494c092a047baa34ed3e667f3cb2715e" },
@@ -75,7 +75,7 @@
   "tailwind-tools": { "branch": "master", "commit": "abe7368392345c53174979c2cf033e832de80ef8" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "1f08ed60cafc8f6168b72b80be2b2ea149813e55" },
   "telescope-git-branch.nvim": { "branch": "main", "commit": "acdc68011e07b349ead4c83c4c66cbdf061164b3" },
-  "telescope-resession.nvim": { "branch": "main", "commit": "7c8fb86529ccf58b69d7cccf9d957dc686139160" },
+  "telescope-resession.nvim": { "branch": "main", "commit": "1d4704735578dc3d321932103080bb52a486c933" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
