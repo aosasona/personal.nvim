@@ -4,10 +4,12 @@ return {
 	version = false, -- Never set this value to "*"! Never!
 	opts = {
 		provider = "ollama",
-		cursor_applying_provider = "ollama",
-		ollama = {
-			model = "llama3.2:latest",
+		providers = {
+			ollama = {
+				model = "llama3.2:latest",
+			},
 		},
+		cursor_applying_provider = "ollama",
 		behaviour = {
 			enable_cursor_planning_mode = true, -- enable cursor planning mode!
 		},
