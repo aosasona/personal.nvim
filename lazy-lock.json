@@ -1,6 +1,7 @@
 {
   "LuaSnip": { "branch": "master", "commit": "458560534a73f7f8d7a11a146c801db00b081df0" },
   "actions-preview.nvim": { "branch": "master", "commit": "36513ad213855d497b7dd3391a24d1d75d58e36f" },
+  "android-nvim": { "branch": "main", "commit": "f1165f6ab179b314037a53a51e6adc91829a271d" },
   "avante.nvim": { "branch": "main", "commit": "b54b806f71a3fc52fe2814c3d4a60fd9efa6a43c" },
   "barbar.nvim": { "branch": "master", "commit": "53b5a2f34b68875898f0531032fbf090e3952ad7" },
   "bore.nvim": { "branch": "master", "commit": "608942a0e28b08ad75d32764b1a2e14018b35be5" },
