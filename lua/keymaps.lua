@@ -63,7 +63,7 @@ return {
 
 		-- Splits
 		["<C-\\>"] = { "<cmd>:vsplit<CR>", desc = "Split vertically" },
-		["<C-_>"] = { "<cmd>:split<CR>", desc = "Split horizontally" },
+		["<C-->"] = { "<cmd>:split<CR>", desc = "Split horizontally" },
 
 		-- Keybinds to make split navigation easier.
 		--  Use CTRL+<hjkl> to switch between windows
