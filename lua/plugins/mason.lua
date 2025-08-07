@@ -44,6 +44,7 @@ return {
 					"mdx_analyzer",
 					"phpactor",
 					"ruff",
+					"sqls",
 					"tailwindcss",
 					"tinymist",
 					"yamlls",

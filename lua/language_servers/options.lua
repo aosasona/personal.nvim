@@ -101,7 +101,7 @@ local config = {
 	-- List of servers that are installed locally (i.e. not installed with mason)
 	local_servers = {
 		"v_analyzer",
-		"sqls",
+		-- "sqls",
 		"gleam",
 		"sourcekit",
 	},
