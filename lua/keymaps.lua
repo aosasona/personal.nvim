@@ -133,6 +133,8 @@ return {
 			end,
 			desc = "Toggle copilot suggestion",
 		},
+		["<leader>c."] = { "<cmd>Copilot panel<CR>", desc = "Open copilot panel" },
+		["<leader>c,"] = { "<cmd>Copilot toggle<CR>", desc = "Toggle copilot" },
 
 		-- CSV View
 		["<leader>cv"] = {
@@ -670,5 +672,34 @@ return {
 
 		-- DBEE
 		["<leader>dr"] = { "BB", desc = "Execute the current query" },
+	},
+
+	-- Insert mode
+	i = {
+		-- Copilot mappings
+		["<C-j>"] = {
+			function()
+				require("copilot.suggestion").next()
+			end,
+			desc = "Next copilot suggestion",
+		},
+		["<C-k>"] = {
+			function()
+				require("copilot.suggestion").prev()
+			end,
+			desc = "Previous copilot suggestion",
+		},
+		["<M-CR>"] = {
+			function()
+				require("copilot.suggestion").accept()
+			end,
+			desc = "Accept copilot suggestion",
+		},
+		["<C-]>"] = {
+			function()
+				require("copilot.suggestion").dismiss()
+			end,
+			desc = "Dismiss copilot suggestion",
+		},
 	},
 }
