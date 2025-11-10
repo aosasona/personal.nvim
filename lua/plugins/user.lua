@@ -135,6 +135,8 @@ return {
 		build = function()
 			require("typst-preview").update()
 		end,
+		filetypes = { "typst" },
+		lazy = true,
 	},
 	{
 		"windwp/nvim-ts-autotag",
