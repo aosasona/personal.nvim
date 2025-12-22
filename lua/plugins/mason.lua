@@ -47,6 +47,7 @@ return {
 					"sqls",
 					"tailwindcss",
 					"tinymist",
+					"taplo",
 					"yamlls",
 					"vimls",
 				},
