@@ -13,7 +13,7 @@ local options = {
 		netrw_winsize = -28,
 
 		-- Use bore as clipboard provider
-		-- clipboard = require("bore.clipboard").get_provider(),
+		clipboard = require("bore.clipboard").get_provider(),
 
 		-- Gruvbox settings
 		gruvbox_material_background = "hard",
