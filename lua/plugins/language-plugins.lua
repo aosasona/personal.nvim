@@ -35,6 +35,8 @@ return {
 					python = { "isort", "ruff" },
 					-- php = { "intelephense" },
 					vue = { "biome" },
+					shell = { "shfmt" },
+					sh = { "shfmt" },
 					sql = { "sqlfmt" },
 					typst = { "typstfmt" },
 				},
