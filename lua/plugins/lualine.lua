@@ -1,6 +1,3 @@
--- Disable git blame virtual text
-vim.g.gitblame_display_virtual_text = 0
-
 local function macro_recording()
 	local mode = require("noice").api.statusline.mode.get()
 	if mode then
@@ -23,6 +20,5 @@ return {
 	end,
 	dependencies = {
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
-		{ "f-person/git-blame.nvim" },
 	},
 }

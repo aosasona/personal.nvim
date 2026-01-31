@@ -15,6 +15,10 @@ local options = {
 		-- Use bore as clipboard provider
 		clipboard = require("bore.clipboard").get_provider(),
 
+		-- Git blame
+		gitblame_enabled = 1,
+		gitblame_display_virtual_text = 0,
+
 		-- Gruvbox settings
 		gruvbox_material_background = "hard",
 		gruvbox_material_better_performance = 1,

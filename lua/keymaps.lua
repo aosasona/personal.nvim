@@ -354,9 +354,7 @@ return {
 
 		-- Git stuff
 		["<leader>g"] = { "", desc = "Git" },
-		["<leader>gb"] = { "<cmd>GitBlameToggle<CR>", desc = "Toggle Git blame" },
-		["<leader>gy"] = { "<cmd>GitBlameCopyCommitURL<CR>", desc = "Copy commit URL" },
-		["<leader>gY"] = { "<cmd>GitBlameCopyFileURL<CR>", desc = "Copy file upstream URL" },
+		["<leader>gb"] = { "<cmd>BlameToggle virtual<CR>", desc = "Toggle Git blame (virtual)" },
 
 		-- Conflicts
 		["<leader>gc"] = { "<cmd>GitConflictListQf<CR>", desc = "Show a quickfix list of conflicts" },

@@ -21,7 +21,7 @@ return {
 			require("colorizer").setup()
 		end,
 	},
-	{ "tpope/vim-sleuth", lazy = false },
+	{ "tpope/vim-sleuth",     lazy = false },
 	{
 		"wakatime/vim-wakatime",
 	},
@@ -56,12 +56,6 @@ return {
 		-- end,
 	},
 	{ "tpope/vim-surround" },
-	{
-		"f-person/git-blame.nvim",
-		config = function()
-			require("gitblame").setup({ enabled = false })
-		end,
-	},
 	{
 		"folke/which-key.nvim",
 		config = function()
