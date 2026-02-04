@@ -32,8 +32,5 @@ require("core.opts").load()
 
 -- Use nvim-notify as default notification handler
 vim.notify = require("notify")
--- vim.cmd.colorscheme("gruvbox-material")
--- vim.cmd.colorscheme("oxocarbon")
-vim.cmd.colorscheme("vesper")
 
 require("core").setup()

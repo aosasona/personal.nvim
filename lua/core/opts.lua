@@ -1,6 +1,10 @@
 -- g is equivalent to vim.g
 -- opts is equivalent to vim.opt
 local options = {
+	colorscheme = "rasmus",
+	-- colorscheme = "gruvbox-material",
+	-- colorscheme = "oxocarbon",
+	-- colorscheme = "vesper",
 	g = {
 
 		have_nerd_font = true,
@@ -116,6 +120,9 @@ function M.load()
 	vim.filetype.add({
 		extension = options.extensions,
 	})
+
+	colorscheme = options.colorscheme or "oxocarbon"
+	vim.cmd.colorscheme(colorscheme)
 end
 
 return M
