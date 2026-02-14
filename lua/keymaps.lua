@@ -26,9 +26,11 @@ return {
 		},
 
 		["<leader>~~"] = {
-			function()
-				utils.toggle_colormode()
-			end,
+			function() utils.toggle_background() end,
+			desc = "Toggle color mode (light/dark)",
+		},
+		["<leader>uc"] = {
+			function() utils.toggle_background() end,
 			desc = "Toggle color mode (light/dark)",
 		},
 		["<leader>nx"] = {
