@@ -43,6 +43,25 @@ function M.toggle_background()
 	else
 		vim.opt.background = "dark"
 	end
+
+	M.save_background()
+end
+
+function M.save_background()
+	local background_file = vim.fn.stdpath("data") .. "/background.txt"
+	vim.fn.writefile({ vim.opt.background:get() }, background_file)
+end
+
+-- Attempts to load the last used background (dark or light) from a file. If the file doesn't exist, it defaults to `dark`.
+function M.load_background()
+	local background_file = vim.fn.stdpath("data") .. "/background.txt"
+	local background = "dark"
+
+	if vim.fn.filereadable(background_file) == 1 then
+		background = vim.trim(vim.fn.readfile(background_file)[1])
+	end
+
+	vim.opt.background = background
 end
 
 return M

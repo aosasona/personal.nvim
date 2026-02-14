@@ -37,6 +37,10 @@ function M.setup()
 	-- ########### Autocmds ###########
 	require("core.autocmds").setup()
 
+	-- ########### Background ###########
+	utils.load_background()
+
+
 	-- ########### Keymaps ########### --
 	setup_keymaps()
 end
