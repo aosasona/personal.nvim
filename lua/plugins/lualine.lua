@@ -13,6 +13,11 @@ return {
 			sections = {
 				lualine_c = {
 					macro_recording,
+					{
+						"filename",
+						path = 1,
+						symbols = { modified = " ", readonly = " ", unnamed = "[No Name]", },
+					},
 					{ require("gitblame").get_current_blame_text, cond = require("gitblame").is_blame_text_available },
 				},
 			},
