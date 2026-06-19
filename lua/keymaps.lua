@@ -91,6 +91,7 @@ return {
 		["<leader>lH"] = {
 			function()
 				vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+				vim.notify("Inlay hints " .. (vim.lsp.inlay_hint.is_enabled({}) and "enabled" or "disabled"))
 			end,
 			desc = "Toggle inlay hints",
 		},
