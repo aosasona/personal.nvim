@@ -1,9 +1,9 @@
 -- g is equivalent to vim.g
 -- opts is equivalent to vim.opt
 local options = {
-	-- colorscheme = "rasmus",
+	colorscheme = "rasmus",
 	-- colorscheme = "gruvbox-material",
-	colorscheme = "oxocarbon",
+	-- colorscheme = "oxocarbon",
 	-- colorscheme = "vesper",
 
 	g = {
