@@ -7,7 +7,6 @@ local options = {
 	-- colorscheme = "vesper",
 
 	g = {
-
 		have_nerd_font = true,
 		autoformat_enabled = true,
 
