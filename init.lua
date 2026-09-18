@@ -26,9 +26,6 @@ require("lazy").setup({
 	defaults = {
 		version = "*",
 	},
-	rocks = {
-		hererocks = true,
-	}
 })
 
 require("core.opts").load()
