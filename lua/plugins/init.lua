@@ -1,7 +1,7 @@
 local plugins = {}
 
-local function is_array(table)
-	return type(table) == "table" and table[1] ~= nil
+local function is_plugin_list(tbl)
+	return type(tbl) == "table" and type(tbl[1]) == "table"
 end
 
 -- Load plugin definitions from a given folder (e.g. plugins or colors)
@@ -20,7 +20,7 @@ local function load_plugins_from(dir_name)
 			local plugin_name = file:match(dir_name .. "/(.*)"):gsub(".lua", "")
 			local plugin = require(dir_name .. "." .. plugin_name)
 
-			if is_array(plugin) then
+			if is_plugin_list(plugin) then
 				for _, plugin_definition in ipairs(plugin) do
 					table.insert(plugins, plugin_definition)
 				end
